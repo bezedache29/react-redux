@@ -1,8 +1,13 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import Card from '../components/Card'
 import phone from '../assets/img/phone.jpeg'
 
-const Shop = () => {
+
+const Shop = (props) => {
+
+  console.log(props)
+
   return (
     <div className="container">
 
@@ -10,7 +15,7 @@ const Shop = () => {
 
       <div className="row">
 
-        <Card item="phone" src={phone} />
+        <Card item="phone" nb={props.phones} src={phone} />
 
       </div>
 
@@ -18,4 +23,8 @@ const Shop = () => {
   )
 }
 
-export default Shop
+const mapStateToProps = (state) => {
+  return { phones: state.phones }
+}
+
+export default connect(mapStateToProps)(Shop)

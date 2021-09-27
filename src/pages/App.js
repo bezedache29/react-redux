@@ -1,20 +1,26 @@
 import React from 'react'
 import Card from "../components/Card"
 import phone from '../assets/img/phone.jpeg'
+import { Provider } from 'react-redux'
+import store from '../redux/store'
 
 function App() {
   return (
-    <div className="container">
+    <Provider store={store}>
 
-      <h1 className="my-5">Mon Application</h1>
+      <div className="container">
 
-      <div className="row">
+        <h1 className="my-5">Mon Application</h1>
 
-        <Card item="phone" src={phone} />
+        <div className="row">
+
+          <Card item="phone" src={phone} />
+
+        </div>
 
       </div>
 
-    </div>
+    </Provider>
   )
 }
 

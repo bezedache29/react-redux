@@ -14,6 +14,9 @@ const Navbar = () => {
             <li className="nav-item">
               <NavLink to="/" className="nav-link">Sans les hooks</NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink to="/with-hooks" className="nav-link">Avec les hooks</NavLink>
+            </li>
           </ul>
         </div>
       </div>

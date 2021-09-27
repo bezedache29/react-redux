@@ -21,7 +21,7 @@ const WithoutHooks = (props) => {
 
       <div className="container">
 
-        <h1 className="my-5">Mon Application</h1>
+        <h1 className="my-5">Avec mapStateToProps et mapDispatchToProps (HOC)</h1>
 
         <div className="row">
 

@@ -3,9 +3,10 @@ import { connect } from 'react-redux'
 import Card from '../components/Card'
 import phone from '../assets/img/phone.jpeg'
 import { buyPhone } from '../redux/phone/actionPhone'
+import Navbar from '../partials/Navbar'
 
 
-const Shop = (props) => {
+const WithoutHooks = (props) => {
 
   console.log(props)
 
@@ -14,17 +15,23 @@ const Shop = (props) => {
   }
 
   return (
-    <div className="container">
+    <>
 
-      <h1 className="my-5">Mon Application</h1>
+      <Navbar />
 
-      <div className="row">
+      <div className="container">
 
-        <Card item="phone" nb={props.phones} src={phone} buy={decrementPhone} />
+        <h1 className="my-5">Mon Application</h1>
+
+        <div className="row">
+
+          <Card item="phone" nb={props.phones} src={phone} buy={decrementPhone} />
+
+        </div>
 
       </div>
 
-    </div>
+    </>
   )
 }
 
@@ -40,4 +47,4 @@ const mapDispatchToProps = (disptach) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Shop)
+export default connect(mapStateToProps, mapDispatchToProps)(WithoutHooks)

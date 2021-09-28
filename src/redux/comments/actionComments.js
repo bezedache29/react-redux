@@ -23,7 +23,7 @@ export const apiCall = () => {
   return (dispatch) => {
 
     // On indique qu'on recupère les commentaires
-    dispatch(loadApiComments)
+    dispatch(loadApiComments())
 
     axios.get(`https://jsonplaceholder.typicode.com/comments`)
       .then(res => {

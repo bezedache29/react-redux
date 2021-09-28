@@ -40,11 +40,9 @@ const mapStateToProps = (state) => {
 }
 
 // Permet de dispatch dans le store
-const mapDispatchToProps = (disptach) => {
+const mapDispatchToProps = (dispatch) => {
   return { 
-    apiComments: function() {
-      disptach(apiCall())
-    }
+    apiComments: () => dispatch(apiCall())
   }
 }
 

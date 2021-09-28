@@ -2,7 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Card from '../components/Card'
 import phone from '../assets/img/phone.jpeg'
+import tv from '../assets/img/tv.jpg'
 import { buyPhone } from '../redux/phone/actionPhone'
+import { buyTv } from '../redux/tv/actionTv'
 import Navbar from '../partials/Navbar'
 
 
@@ -12,6 +14,10 @@ const WithoutHooks = (props) => {
 
   const decrementPhone = () => {
     props.buyPhone()
+  }
+
+  const decrementTv = () => {
+    props.buyTv()
   }
 
   return (
@@ -27,6 +33,8 @@ const WithoutHooks = (props) => {
 
           <Card item="phone" nb={props.phones} src={phone} buy={decrementPhone} />
 
+          <Card item="tv" nb={props.tv} src={tv} buy={decrementTv} />
+
         </div>
 
       </div>
@@ -37,13 +45,23 @@ const WithoutHooks = (props) => {
 
 // Permet de recupérer le store
 const mapStateToProps = (state) => {
-  return { phones: state.phones }
+  return { 
+    // phones: state.phones
+    phones: state.phone.phones,
+    tv: state.tv.tv
+  }
 }
 
 // Permet de dispatch dans le store
 const mapDispatchToProps = (disptach) => {
   return { 
-    buyPhone: () => disptach(buyPhone())
+    // buyPhone: () => disptach(buyPhone())
+    buyPhone: function() {
+      disptach(buyPhone())
+    },
+    buyTv: function() {
+      disptach(buyTv())
+    }
   }
 }
 

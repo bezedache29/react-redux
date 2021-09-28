@@ -4,7 +4,7 @@ import tvReducer from "./tv/reducerTv"
 
 // On merge les 2 reducers pour les passer a la création de store
 const routeReducer = combineReducers({
-  phones: phoneReducer,
+  phone: phoneReducer,
   tv: tvReducer
 })
 

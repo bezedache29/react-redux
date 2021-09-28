@@ -6,6 +6,7 @@ import tv from '../assets/img/tv.jpg'
 import { buyPhone } from '../redux/phone/actionPhone'
 import { buyTv } from '../redux/tv/actionTv'
 import Navbar from '../partials/Navbar'
+import CommentsContainer from '../components/CommentsContainer'
 
 
 const WithoutHooks = (props) => {
@@ -40,6 +41,8 @@ const WithoutHooks = (props) => {
           <Card item="phone" nb={props.phones} src={phone} buy={decrementPhone} initNb={numberPhone} changeNb={changeNumberPhone} />
 
           <Card item="tv" nb={props.tv} src={tv} buy={decrementTv} />
+
+          <CommentsContainer />
 
         </div>
 

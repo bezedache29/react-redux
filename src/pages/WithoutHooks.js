@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import Card from '../components/Card'
 import phone from '../assets/img/phone.jpeg'
@@ -10,10 +10,16 @@ import Navbar from '../partials/Navbar'
 
 const WithoutHooks = (props) => {
 
-  console.log(props)
+  // console.log(props)
+
+  const [numberPhone, setNumberPhone] = useState(1)
+
+  const changeNumberPhone = (e) => {
+    setNumberPhone(e.target.value)
+  }
 
   const decrementPhone = () => {
-    props.buyPhone()
+    props.buyPhone(numberPhone)
   }
 
   const decrementTv = () => {
@@ -31,7 +37,7 @@ const WithoutHooks = (props) => {
 
         <div className="row">
 
-          <Card item="phone" nb={props.phones} src={phone} buy={decrementPhone} />
+          <Card item="phone" nb={props.phones} src={phone} buy={decrementPhone} initNb={numberPhone} changeNb={changeNumberPhone} />
 
           <Card item="tv" nb={props.tv} src={tv} buy={decrementTv} />
 
@@ -56,8 +62,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (disptach) => {
   return { 
     // buyPhone: () => disptach(buyPhone())
-    buyPhone: function() {
-      disptach(buyPhone())
+    buyPhone: function(numberPhone) {
+      disptach(buyPhone(numberPhone))
     },
     buyTv: function() {
       disptach(buyTv())
